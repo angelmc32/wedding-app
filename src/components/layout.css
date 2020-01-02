@@ -188,7 +188,6 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 * {
   box-sizing: inherit;
@@ -334,14 +333,14 @@ hgroup {
   margin-bottom: 1.45rem;
 }
 ul {
-  margin-left: 1.45rem;
+  margin-left: 0;
   margin-right: 0;
   margin-top: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0;
   list-style-position: outside;
   list-style-image: none;
 }
@@ -406,9 +405,9 @@ pre {
   line-height: 1.42;
   background: hsla(0, 0%, 0%, 0.04);
   border-radius: 3px;
-  overflow: auto;
+  
   word-wrap: normal;
-  padding: 1.45rem;
+  padding: 0;
 }
 table {
   margin-left: 0;
@@ -510,7 +509,7 @@ th {
   font-weight: bold;
 }
 li {
-  margin-bottom: calc(1.45rem / 2);
+  margin-bottom: 0;
 }
 ol li {
   padding-left: 0;
@@ -576,10 +575,10 @@ th {
   -moz-font-feature-settings: "tnum";
   -ms-font-feature-settings: "tnum";
   -webkit-font-feature-settings: "tnum";
-  padding-left: 0.96667rem;
-  padding-right: 0.96667rem;
-  padding-top: 0.725rem;
-  padding-bottom: calc(0.725rem - 1px);
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 th:first-child,
 td:first-child {
@@ -617,8 +616,6 @@ pre tt:after {
   content: "";
 }
 
-
-
 .uk-navbar.uk-navbar-container {
   height: 10vh;
   width: 100%;
@@ -631,6 +628,26 @@ pre tt:after {
   color: rgb(64, 64, 64);
   margin: 0 10px;
   line-height: 10vh;
+}
+
+main {
+  width: 100%;
+  height: 90vh;
+  padding: 0;
+  text-align: center;
+  scroll-snap-type: y mandatory;
+  scroll-snap-points-y: repeat(90vh);
+}
+
+.uk-section {
+  width: 100%;
+  height: 90vh;
+  padding: 0;
+  text-align: center;
+}
+
+#slideshow, #details, #additional, #messages {
+  scroll-snap-align: start;
 }
 
 .menu {
@@ -654,16 +671,32 @@ label {
   display: none
 }
 
+.map-container {
+  position: relative;
+  padding-bottom: 75%; 
+  height: 0;
+  overflow: hidden; 
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 @media only screen and (max-width: 480px) {
   label {
     display: block;
     cursor: pointer
   }
 
-  .menu {
+  .uk-navbar-nav.menu {
     text-align: center;
-    width: 100%;
-    display: none
+    display: none;
+    margin: 0;
+    width: 100%
   }
 
   .menu a {
@@ -674,5 +707,8 @@ label {
 
   #toggle:checked + .menu {
     display: block;
+    background-color: #f8f8f8;
   }
+
+  
 }
