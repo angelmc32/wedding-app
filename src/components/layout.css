@@ -671,6 +671,10 @@ label {
   display: none
 }
 
+.uk-button-primary {
+  background-color: #F14958
+}
+
 .map-container {
   position: relative;
   padding-bottom: 75%; 
@@ -772,8 +776,10 @@ label {
     width: 60%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 0 10%;
   }
 
   .map-container {
@@ -787,6 +793,41 @@ label {
     left: 0;
     width: 100% !important;
     height: 100% !important;
+  }
+
+  #additional {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #additional>.uk-container {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #additional>.uk-container:last-child {
+    flex-direction: row-reverse;
+  }
+
+  #additional>.uk-container>.thirty-percent {
+    display: flex;
+    width: 30%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #F14958;
+  }
+
+  #additional>.uk-container>.seventy-percent {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
 }

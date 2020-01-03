@@ -53,18 +53,33 @@ const IndexPage = () => (
 
     <div id="additional" className="uk-section uk-margin">
       <div className="uk-container">
-        <h2>Informacion Adicional</h2>
-        <ul>
-          <li>Vestimenta: No tengo idea</li>
-          <li>No ninos</li>
-        </ul>
-        <h3>Hospedaje</h3>
-        <ul>
-          <li>Hotel 1 <a href="">Ver ubicacion</a></li>
-          <li>Hotel 2 <a href="">Ver ubicacion</a></li>
-          <li>Hotel 3 <a href="">Ver ubicacion</a></li>
-        </ul>
+        <div className="thirty-percent">
+          <h2>Informacion Adicional</h2>
+        </div>
+        <div className="seventy-percent">
+          <ul>
+            <li>Vestimenta: No tengo idea</li>
+            <li>No ninos</li>
+          </ul>
+        </div>
       </div>
+
+      <div className="uk-container">
+        <div className="thirty-percent">
+          <h2>Opciones de hospedaje</h2>
+        </div>
+        <div className="seventy-percent">
+          <ul>
+            <li>Hotel 1 <a href="">Ver ubicacion</a></li>
+            <li>Hotel 2 <a href="">Ver ubicacion</a></li>
+            <li>Hotel 3 <a href="">Ver ubicacion</a></li>
+          </ul>
+        </div>
+      </div>
+      
+        
+        
+      
     </div>
 
     <div id="messages" className="uk-section uk-margin">
