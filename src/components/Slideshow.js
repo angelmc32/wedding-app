@@ -5,8 +5,8 @@ import photo3 from '../images/photography-254.jpg'
 
 const Slideshow = () => {
   return (
-    <div className="uk-position-relative uk-visible-toggle uk-light" tabIndex={-1} uk-slideshow="true">
-        <ul className="uk-slideshow-items" uk-height-viewport="offset-top: true; offset-bottom: 30">
+    <div className="uk-position-relative uk-visible-toggle uk-light uk-height-1-1" tabIndex={-1} uk-slideshow="true;autoplay: true; autoplay-interval: 3000">
+        <ul className="uk-slideshow-items uk-height-1-1">
           <li>
             <img src={photo1} alt="" uk-cover="true" />
           </li>

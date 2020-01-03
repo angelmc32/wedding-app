@@ -686,7 +686,8 @@ label {
   height: 100% !important;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 479px) {
+
   label {
     display: block;
     cursor: pointer
@@ -710,5 +711,82 @@ label {
     background-color: #f8f8f8;
   }
 
+  #slideshow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forty-percent {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sixty-percent {
+    width: 100%;
+    height: 60%;
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .uk-section {
+    width: 100%;
+    height: 90vh;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    margin: 0
+  }
+
+  #slideshow {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  #slideshow>.forty-percent {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #slideshow>.sixty-percent {
+    width: 60%;
+    height: 100%;
+    display: block;
+  }
+
+  #details>.forty-percent {
+    width: 40%;
+    height: 100%;
+    display: block;
+  }
+
+  #details>.sixty-percent {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-container {
+    height: 100%;
+    width: 100% 
+  }
   
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
 }

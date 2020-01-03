@@ -11,31 +11,44 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <div id="slideshow" className="uk-section">
-      <Slideshow />
-      
-      <div className="uk-container uk-margin">
-      <h1>Paula & Angel</h1>
-        <p>Los invitamos a celebrar nuestra boda el dia 15 de marzo de 2020</p>
-        <button className="uk-button uk-button-primary uk-border-pill">
-          Confirma tu asistencia
-        </button>
+
+      <div className="sixty-percent">
+        <Slideshow />
       </div>
+
+      <div className="forty-percent">
+        <div className="uk-container uk-margin">
+          <h1>Paula & Angel</h1>
+          <p>Los invitamos a celebrar nuestra boda el dia 15 de marzo de 2020</p>
+          <button className="uk-button uk-button-primary uk-border-pill">
+            Confirma tu asistencia
+          </button>
+        </div>
+      </div>
+    
     </div>
 
-    <div id="details" className="uk-section uk-margin">
-      <div className="uk-container uk-margin">
-        <h2>Cuando</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
-        Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
+    <div id="details" className="uk-section">
+      
+      <div className="sixty-percent">
+
+        <div className="uk-container uk-margin">
+          <h2>Cuando</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
+          Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
+        </div>
+        <div className="uk-container uk-margin">
+          <h2>Donde</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
+          Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
+        </div>
+
       </div>
-      <div className="uk-container uk-margin">
-        <h2>Donde</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
-        Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
+      
+      <div className="forty-percent">
+          <Map />
       </div>
-      <div className="uk-container uk-margin">
-        <Map />
-      </div>
+
     </div>
 
     <div id="additional" className="uk-section uk-margin">
