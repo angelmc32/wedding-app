@@ -33,12 +33,17 @@ const IndexPage = () => (
       <div className="sixty-percent">
 
         <div className="uk-container uk-margin">
-          <h2>Cuando</h2>
+          <div className="background-h2">
+            <h2>Cuando</h2>
+          </div>
+          
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
           Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
         </div>
         <div className="uk-container uk-margin">
-          <h2>Donde</h2>
+          <div className="background-h2">
+            <h2>Donde</h2>
+          </div>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, repudiandae?
           Libero debitis repudiandae aspernatur, blanditiis dolore praesentium expedita voluptas nihil.</p>
         </div>

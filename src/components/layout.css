@@ -782,6 +782,12 @@ label {
     padding: 0 10%;
   }
 
+  #details .background-h2 {
+    height: 25%;
+    background-color: #F14958;
+    color: #f8f8f8;
+  }
+
   .map-container {
     height: 100%;
     width: 100% 
@@ -798,6 +804,7 @@ label {
   #additional {
     display: flex;
     flex-direction: column;
+    padding: 0;
   }
 
   #additional>.uk-container {
@@ -806,6 +813,9 @@ label {
     height: 50%;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: 0;
+    max-width: none;
   }
 
   #additional>.uk-container:last-child {
