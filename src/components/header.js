@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
             </div>
         </li>
         <li className="uk-active uk-flex uk-flex-middle uk-height-1-1">
-            <a href="#slideshow">P&A</a>
+            <a id="PA" href="#slideshow"><h3><span style={{color: "#000000"}}>P</span> & <span style={{color: "#000000"}}>Á</span></h3></a>
         </li>
     </ul>
 
@@ -21,9 +21,9 @@ const Header = ({ siteTitle }) => (
     <input type="checkbox" id="toggle"/>
     
     <ul className="menu uk-navbar-nav">
-        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#details">Donde</a></li>
-        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#additional">Informacion</a></li>
-        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#messages">Contacto</a></li>
+        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#details">Fecha/Lugar</a></li>
+        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#additional">Información</a></li>
+        <li className="uk-active uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><a href="#messages">Confirma</a></li>
     </ul>
 
   </nav>

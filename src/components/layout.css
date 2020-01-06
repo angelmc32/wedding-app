@@ -200,7 +200,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -230,8 +230,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -247,8 +246,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -264,8 +262,7 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
@@ -281,8 +278,7 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
@@ -298,8 +294,7 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
@@ -315,8 +310,7 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
@@ -623,11 +617,24 @@ pre tt:after {
 }
 
 .uk-navbar-nav.menu  {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-decoration: none;
-  color: rgb(64, 64, 64);
+  color: #F14958;
   margin: 0 10px;
   line-height: 10vh;
+}
+
+.uk-navbar-nav>li.uk-active>a {
+  color: #D82B39;
+  text-transform: none;
+}
+
+a {
+  color: #D82B39;
+}
+
+.uk-icon {
+  color: #D82B39;
 }
 
 main {
@@ -655,7 +662,7 @@ main {
 }
 
 .menu a {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-decoration: none;
   color: rgb(64, 64, 64);
   margin: 0 10px;
@@ -688,6 +695,13 @@ label {
   left: 0;
   width: 100% !important;
   height: 100% !important;
+}
+
+#modal-button {
+  background-color: #F14958;
+  color: #ffffff;
+  border: #ffffff 1px solid;
+  border-radius: 15px;
 }
 
 @media only screen and (max-width: 479px) {
@@ -723,9 +737,7 @@ label {
   .forty-percent {
     width: 100%;
     height: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block
   }
 
   .sixty-percent {
@@ -733,6 +745,96 @@ label {
     height: 60%;
     display: block;
   }
+
+  #details>.sixty-percent {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #details>.sixty-percent>.uk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+  }
+
+  #slideshow>.forty-percent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #details {
+    background-color: #F14958;
+    color: #ffffff;
+  }
+
+  #additional {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #additional>.uk-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+  }
+
+  #additional>.uk-container:first-child {
+    padding-top: 5%;
+  }
+
+  #additional h2 {
+    color: #D82B39;
+  }
+
+  #alert {
+    background-color: #F14958;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 2.5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.45rem
+  }
+
+  #alert p , h4{
+    margin: 0
+  }
+
+  #messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #messages>.uk-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 65%;
+  }
+
+  #messages>.uk-container:first-child {
+    justify-content: center;
+    height: 35%;
+    background-color: #F14958;
+    color: #ffffff
+  }
+
 
 }
 
@@ -766,6 +868,11 @@ label {
     display: block;
   }
 
+  #details {
+    background-color: #F14958;
+    color: #ffffff;
+  }
+
   #details>.forty-percent {
     width: 40%;
     height: 100%;
@@ -780,12 +887,6 @@ label {
     align-items: center;
     justify-content: space-evenly;
     padding: 0 10%;
-  }
-
-  #details .background-h2 {
-    height: 25%;
-    background-color: #F14958;
-    color: #f8f8f8;
   }
 
   .map-container {
@@ -834,10 +935,48 @@ label {
 
   #additional>.uk-container>.seventy-percent {
     display: flex;
+    flex-direction: column;
     width: 70%;
     height: 100%;
     justify-content: center;
     align-items: center;
+  }
+
+  #alert {
+    background-color: #F14958;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.45rem
+  }
+
+  #alert p , h4{
+    margin: 0
+  }
+
+  #messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #messages>.uk-container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  #messages>.uk-container:first-child {
+    background-color: #F14958;
+    color: #ffffff;
+    justify-content: center;
   }
 
 }
