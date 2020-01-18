@@ -653,6 +653,13 @@ main {
   text-align: center;
 }
 
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
 #slideshow, #details, #additional, #messages {
   scroll-snap-align: start;
 }

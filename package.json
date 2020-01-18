@@ -5,8 +5,12 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "axios": "^0.19.1",
+    "firebase": "^7.6.1",
     "gatsby": "^2.18.12",
+    "gatsby-firesource": "^2.0.3",
     "gatsby-image": "^2.2.34",
+    "gatsby-plugin-firebase": "^0.1.7",
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-offline": "^3.0.27",
     "gatsby-plugin-react-helmet": "^3.1.16",
@@ -20,6 +24,7 @@
     "uikit": "^3.2.6"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "prettier": "^1.19.1"
   },
   "keywords": [

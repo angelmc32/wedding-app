@@ -1,7 +1,18 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+const React = require("react");
+const Layout = require("./src/components/layout").default
 
-// You can delete this file if you're not using it
+exports.wrapPageElement  = ({element, props}) => {
+  
+  React.useEffect( () => {
+    try {
+      this.UIkit = require("uikit/dist/js/uikit");
+      this.Icons = require("uikit/dist/js/uikit-icons");
+      this.UIkit.use(this.Icons);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  )
+
+  return <Layout {...props} >{element}</Layout>
+}
