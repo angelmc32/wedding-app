@@ -9,9 +9,9 @@ const Confirmation = (props) => {
   return (
     <div className="uk-section">
       <div className="uk-container uk-flex uk-flex-column uk-padding-large">
-        <h2>Listo {guest ? `${guest.first_name} ${guest.last_name}` : Invitado}</h2>
+        <h2>Listo {guest ? `${guest.first_name} ${guest.last_name}` : "Invitado"}</h2>
         <p>Tus boletos electrónicos serán enviados a la siguiente dirección de correo:</p>
-        <h3>{guest ? guest.email : Correo no registrado}</h3>
+        <h3>{guest ? guest.email : "Correo no registrado"}</h3>
         <p>Si tienes alguna duda, por favor mándanos un correo a paulayangel2020@gmail.com</p>
         <Link to="/" className="uk-margin">
           <button className="uk-button uk-button-primary uk-border-pill">Regresar</button>
