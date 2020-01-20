@@ -2,20 +2,18 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { FirebaseContext, useAuth } from './Firebase'
-// import FirebaseContext from './Firebase/context'
-// import useAuth from './Firebase/useAuth'
-
 
 import UIkit from "uikit"
 import icons from "uikit/dist/js/uikit-icons"
 import "uikit/dist/css/uikit.min.css"
 
 import Header from "./header"
+import Navbar from "./Navbar"
 import "./layout.css"
 import firebaseConfig from "./Firebase/config"
 
 const Layout = ({ children, props }) => {
-  const { user, firebase, loading } = useAuth();
+  const { user, setUser, firebase, loading } = useAuth();
 
   useEffect(() => {
     UIkit.use(icons)
@@ -32,9 +30,10 @@ const Layout = ({ children, props }) => {
   `)
 
   return (
-    <FirebaseContext.Provider value={{user, firebase, loading}}>
+    <FirebaseContext.Provider value={{user, setUser, firebase, loading}}>
       
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Navbar />
       <main>
         {children}
       </main>

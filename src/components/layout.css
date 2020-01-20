@@ -629,6 +629,10 @@ pre tt:after {
   text-transform: none;
 }
 
+.uk-navbar-nav>li>a {
+  padding: 0 5px
+}
+
 a {
   color: #D82B39;
 }
@@ -644,6 +648,7 @@ main {
   text-align: center;
   scroll-snap-type: y mandatory;
   scroll-snap-points-y: repeat(90vh);
+  overflow-y: auto;
 }
 
 .uk-section {
@@ -666,6 +671,7 @@ main {
 
 .menu {
   margin: 0 30px 0 0;
+  z-index: 1;
 }
 
 .menu a {
@@ -694,6 +700,7 @@ label {
   padding-bottom: 75%; 
   height: 0;
   overflow: hidden; 
+  z-index: 0;
 }
 
 .map-container iframe {
@@ -701,7 +708,7 @@ label {
   top: 0;
   left: 0;
   width: 100% !important;
-  height: 100% !important;
+  height: 85% !important;
 }
 
 #modal-button {
@@ -712,6 +719,23 @@ label {
 }
 
 @media only screen and (max-width: 479px) {
+
+  body {
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  }
+
+  h1 {
+    font-size: 2.1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
 
   label {
     display: block;
@@ -744,13 +768,11 @@ label {
   .forty-percent {
     width: 100%;
     height: 40%;
-    display: block
   }
 
   .sixty-percent {
     width: 100%;
     height: 60%;
-    display: block;
   }
 
   #details>.sixty-percent {

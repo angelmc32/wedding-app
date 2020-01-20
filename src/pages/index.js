@@ -187,13 +187,17 @@ const IndexPage = (props) => {
           <p>Mensaje importante:</p>
           <p>Debido a nuestros planes a corto plazo, no registramos ninguna mesa de regalos. Si quieres conocer más, por favor <button id="modal-button" uk-toggle="target: #modal-center">haz click aqui</button></p>
           <div id="modal-center" className="uk-flex-top" uk-modal="true">
-            <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center">
 
                 <button className="uk-modal-close-default" type="button" uk-close="true"></button>
 
-                <p>Como algunos de ustedes saben, para mediados de este año estaremos migrando a Canadá.</p>
-                <p>Es un plan para el cual llevamos ahorrando desde principios de 2019, y para el cual tenemos contemplado llevarnos solo lo indispensable.</p>
-                <p>Pensando en esto, decidimos no solicitar regalos ya que complica nuestra movilidad. Agradecemos mucho la intención, y si gustan apoyarnos, cualquier aportación económica nos será mucho más benéfica que un regalo físico.</p>
+                <p>Como algunos de ustedes saben, para mediados de este año estaremos migrando a Canadá 🇨🇦</p>
+                <p>Es un plan para el cual llevamos ahorrando desde principios de 2019, y para el cual tenemos contemplado llevarnos solo lo indispensable. Pensando en esto, decidimos no solicitar regalos ya que complica nuestra movilidad. </p>
+                <p>Agradecemos mucho la intención. Si ustedes lo desean, cualquier apoyo económico nos será mucho más benéfico.</p>
+                <br/>
+                <p>🏦 CLABE Interbancaria: 036180500256858403 <br/>
+                Banco: Inbursa</p>
+                <p>₿ Dirección Bitcoin: 3AU3MfTMX6VbEZoG7QSLfhPSSiRbuhworm</p>
 
             </div>
           </div>
@@ -217,7 +221,7 @@ const IndexPage = (props) => {
 
                 {guestInfo ? (
                     guestInfo.confirmed ? (
-                      <div>
+                      <div className="uk-text-center">
                         <h3>Estimado {`${guestInfo.first_name} ${guestInfo.last_name}`}</h3>
                         <p>De acuerdo a nuestro registro, ya habías confirmado anteriormente.</p>
                         <p>Si tienes alguna duda, por favor mándanos un correo a paulayangel2020@gmail.com</p>

@@ -75,7 +75,7 @@ function useAuth() {
         }
     }, [])
 
-    return { user, firebase, loading }
+    return { user, setUser, firebase, loading }
 }
 
 export default useAuth

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 
 import { FirebaseContext } from "../components/Firebase"
 
@@ -7,11 +7,16 @@ const Login = () => {
 
   const [ formValues, setFormValues ] = useState({email: '', password: ''});
   const [ errorMessage, setErrorMessage ] = useState('');
-  const { firebase } = useContext(FirebaseContext);
+  const { user, setUser, firebase } = useContext(FirebaseContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     firebase.login({email: formValues.email, password: formValues.password})
+    .then( res => {
+      console.log(res)
+      setUser(res.user);
+      navigate('/guests');
+    })
     .catch( error => {
       setErrorMessage(error.message)
     });
@@ -27,9 +32,10 @@ const Login = () => {
   }
   
   return (
-      <div id="login" className="uk-section uk-margin-large-top">
+      <div id="login" className="uk-section">
+        
+        <div className="uk-container uk-height-1-1 uk-padding-large">
         <h2>Inicia sesión</h2>
-        <div className="uk-container">
         <form className="uk-form-stacked uk-margin" onSubmit={handleSubmit}>
 
           <div className="uk-margin">
@@ -52,7 +58,7 @@ const Login = () => {
             <p className="uk-margin uk-text-danger">{errorMessage}</p>
           }
 
-          <div className="uk-margin">
+          <div className="uk-margin-large">
             <button className="uk-button uk-button-primary uk-border-pill" type="submit">
               Iniciar Sesión
             </button>
