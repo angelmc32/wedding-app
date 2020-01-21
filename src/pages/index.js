@@ -13,7 +13,7 @@ const IndexPage = (props) => {
   const [ guestInfo, setGuestInfo ] = useState(null);
   const [ isConfirmed, setIsConfirmed ] = useState(false);
   const [ guestTemp, setGuestTemp ] = useState({});
-  const [ formValues, setFormValues ] = useState({code: '', email: ''});
+  const [ formValues, setFormValues ] = useState({code: '', email: '', confirmed_guests: '0'});
 
   async function special() {
 
@@ -80,14 +80,20 @@ const IndexPage = (props) => {
 
   const resetGuestInfo = () => setGuestInfo(null);
 
-  const preventDefault = (event) => event.preventDefault();
+  const createOptions = (quantity) => {
+    let options = [];
+    for ( let i = 0 ; i <= quantity ; i++ ) {
+      options.push(<option value={i} key={i}>{i}</option>)
+    }
+    return options;
+  }
 
   const submitGuestConfirmation = (code) => {
     firebase.getGuestInfo({code: formValues.code})
       .then( querySnapshot => {
 
         querySnapshot.forEach( doc => {
-          firebase.db.collection('guests').doc(doc.id).update({confirmed: true})
+          firebase.db.collection('guests').doc(doc.id).update({confirmed: true, confirmed_guests: formValues.confirmed_guests})
           setGuestInfo(doc.data())
           navigate('/confirmation', {state: guestInfo});
         })
@@ -229,7 +235,23 @@ const IndexPage = (props) => {
                       <div className="uk-text-center">
                         <h3>Estimado {`${guestInfo.first_name} ${guestInfo.last_name}`}</h3>
                         <p>¡Estamos muy contentos de que nos acompañes!</p>
-                        <p>Para registrar la confirmación, haz click en confirmar.</p>
+                        { guestInfo.plus_guests > 0 ? 
+                          (
+                            <div>
+                              <p>Tienes <span className="uk-text-bold uk-text-danger">{guestInfo.plus_guests}</span> {guestInfo.plus_guests > 1 ? "lugares adicionales asignados" : "lugar adicional asignado"}.<br/>
+                              Para registrar la confirmación, selecciona el número de adicionales que asistirán y haz click en confirmar.</p>
+                              <div className="uk-margin">
+                                <label className="uk-form-label">Invitados adicionales que asistirán:</label>
+                                <select className="uk-select" onChange={handleInputChange} name="confirmed_guests">
+                                  { createOptions(guestInfo.plus_guests).map(option => option) }
+                                </select>
+                              </div>
+                            </div>
+                          ) : (
+                            <p>Para registrar la confirmación, haz click en confirmar.</p>
+                        )}
+                        
+                        
                         <h5>Recuerda que tienes hasta el 15 de febrero de 2020 para confirmar...</h5>
                         <button className="uk-button uk-button-primary uk-border-pill uk-modal-close" onClick={event => submitGuestConfirmation()} >Confirmar</button>
                       </div>

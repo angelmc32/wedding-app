@@ -8,7 +8,7 @@ const Guests = (props) => {
   const { user, firebase, loading } = useContext(FirebaseContext);
   const [ guests, setGuests ] = useState([]);
   const [ showGuestForm, setShowGuestForm] = useState(false);
-  const [ formValues, setFormValues ] = useState({first_name: '', last_name: '', email: '', plus_guests: '', table: '', code: 'testcode', confirmed: false});
+  const [ formValues, setFormValues ] = useState({first_name: '', last_name: '', email: '', plus_guests: '', table: '', code: 'testcode', confirmed: false, confirmed_guests: ''});
   let guestArray = [];
 
   useEffect( () => {
@@ -19,7 +19,7 @@ const Guests = (props) => {
 
   }, []);
 
-  const toggleGuestForm = () => {setShowGuestForm(!showGuestForm); console.log(showGuestForm)}
+  const toggleGuestForm = () => {setShowGuestForm(!showGuestForm)}
 
   const randomString = (length, chars) => {
     let mask = '';
@@ -45,7 +45,8 @@ const Guests = (props) => {
       plus_guests: formValues.plus_guests,
       table: formValues.table,
       code: code,
-      confirmed: formValues.confirmed
+      confirmed: formValues.confirmed,
+      confirmed_guests: '0'
     })
     .then( res => {
 
@@ -54,7 +55,6 @@ const Guests = (props) => {
 
         querySnapshot.forEach( doc => {
           guestQuery.push(doc.data())
-          console.log(guestQuery);
         })
 
         setGuests(guestQuery);
