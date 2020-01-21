@@ -57,9 +57,7 @@ const IndexPage = (props) => {
             setGuestInfo(null);
           }
 
-        })
-
-        
+        })       
 
       }
       catch(error) {
@@ -191,13 +189,14 @@ const IndexPage = (props) => {
 
                 <button className="uk-modal-close-default" type="button" uk-close="true"></button>
 
-                <p>Como algunos de ustedes saben, para mediados de este año estaremos migrando a Canadá 🇨🇦</p>
-                <p>Es un plan para el cual llevamos ahorrando desde principios de 2019, y para el cual tenemos contemplado llevarnos solo lo indispensable. Pensando en esto, decidimos no solicitar regalos ya que complica nuestra movilidad. </p>
+                <p>Como algunos de ustedes saben, a mediados de 2020 migraremos a Canadá 🇨🇦</p>
+                <p>Es un plan para el cual llevamos ahorrando desde principios de 2019, y llevaremos solo lo indispensable. Pensando en esto, decidimos no solicitar regalos ya que complica nuestra movilidad. </p>
                 <p>Agradecemos mucho la intención. Si ustedes lo desean, cualquier apoyo económico nos será mucho más benéfico.</p>
                 <br/>
                 <p>🏦 CLABE Interbancaria: 036180500256858403 <br/>
                 Banco: Inbursa</p>
                 <p>₿ Dirección Bitcoin: 3AU3MfTMX6VbEZoG7QSLfhPSSiRbuhworm</p>
+                <p>Habrá un buzón 💵 el día de la boda</p>
 
             </div>
           </div>
@@ -209,7 +208,7 @@ const IndexPage = (props) => {
             <input id="code" name="code" className="uk-input" type="text" placeholder="Introduce tu código" onChange={handleInputChange} required></input>
             <div className="uk-margin">
               <label htmlFor="email"></label>
-              <input id="email" name="email" className="uk-input" type="email" placeholder="Correo registrado" onChange={handleInputChange} required></input>
+              <input id="email" name="email" className="uk-input" type="email" placeholder="E-mail registrado" onChange={handleInputChange} required></input>
             </div>
             <button id="modal-button-2" uk-toggle="target: #modal-center-2" className="uk-button uk-button-primary uk-border-pill" type="submit">
               Confirma tu asistencia

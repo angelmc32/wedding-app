@@ -112,7 +112,7 @@ const Guests = (props) => {
                   <input className="uk-input" name="last_name" type="text" placeholder="Apellido" onChange={handleInputChange} required />
               </div>
               <div>
-                  <input className="uk-input" name="email" type="email" placeholder="E-mail" onChange={handleInputChange} required />
+                  <input className="uk-input" name="email" type="email" placeholder="E-mail" onChange={handleInputChange} />
               </div>
               <div>
                   <input className="uk-input" name="plus_guests" type="number" placeholder="Adicionales" onChange={handleInputChange} />
