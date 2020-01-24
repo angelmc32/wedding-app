@@ -17,7 +17,24 @@ const Guests = (props) => {
     props.data.allGuest.edges.forEach( node => guestArray.push(node.node))
     setGuests(guestArray);
 
-  }, []);
+    if ( firebase ) {
+
+      let guestQuery = [];
+
+      firebase.db.collection('guests').get()
+      .then( querySnapshot => {
+
+        querySnapshot.forEach( doc => {
+          guestQuery.push(doc.data())
+        })
+
+        setGuests(guestQuery);
+
+      });
+
+    }
+
+  }, [firebase]);
 
   const toggleGuestForm = () => {setShowGuestForm(!showGuestForm)}
 
@@ -90,6 +107,19 @@ const Guests = (props) => {
     }))
   }
 
+  const sendInvitation = (guest) => {
+    
+    firebase.sendInvitation({
+      first_name: guest.first_name,
+      last_name: guest.last_name,
+      code: guest.code,
+      plus_guests: guest.plus_guests,
+      email: guest.email
+    })
+    .then( res => console.log(res) )
+    .catch( error => console.log(error) )
+
+  }
 
   return (
     <div className="uk-section">
@@ -152,7 +182,7 @@ const Guests = (props) => {
                     <td className="uk-text-center uk-visible@s">{guest.code}</td>
                     <td className="uk-text-center uk-visible@s">{guest.table}</td>
                     <td className="uk-text-center">{guest.confirmed ? <span className="uk-text-success">Sí</span> : <span className="uk-text-danger">No</span>}</td>
-                    <td><button className="uk-button-primary uk-border-pill uk-button-small uk-visible@s">editar</button></td>
+                    <td><button className="uk-button-primary uk-border-pill uk-button-small uk-visible@s" onClick={(event) => sendInvitation(guest)}>Enviar Invitación</button></td>
                   </tr>
                 )
               : <tr>

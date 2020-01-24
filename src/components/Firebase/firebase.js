@@ -17,6 +17,18 @@ class Firebase {
     return await this.db.collection('guests').where('code', '==', code).get();
   }
 
+  async sendInvitation(data) {
+    const sendCodeEmailCallable = this.functions.httpsCallable('sendCodeViaEmail');
+    const { first_name, last_name, code, plus_guests, email } = data;
+    return sendCodeEmailCallable({
+      first_name,
+      last_name,
+      code,
+      plus_guests,
+      email
+    });
+  }
+
   async login({email, password}) {
     return this.auth.signInWithEmailAndPassword(email, password);
   }
