@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Link, graphql, navigate } from "gatsby"
 import { FirebaseContext, useAuth } from '../components/Firebase'
+import Searchbar from '../components/Searchbar'
 import UIkit from 'uikit'; 
 
 const Guests = (props) => {
@@ -9,6 +10,7 @@ const Guests = (props) => {
   const [ guests, setGuests ] = useState([]);
   const [ showGuestForm, setShowGuestForm] = useState(false);
   const [ formValues, setFormValues ] = useState({first_name: '', last_name: '', email: '', plus_guests: '', table: '', code: 'testcode', confirmed: false, confirmed_guests: ''});
+  const [ searchResults, setSearchResults ] = useState([]);
   let guestArray = [];
 
   useEffect( () => {
@@ -29,6 +31,7 @@ const Guests = (props) => {
         })
 
         setGuests(guestQuery);
+        setSearchResults(guestQuery);
 
       });
 
@@ -128,7 +131,7 @@ const Guests = (props) => {
 
         <h2>Invitados</h2>
 
-        <button className="uk-button uk-button-default uk-border-pill" onClick={toggleGuestForm}>
+        <button className="uk-button uk-button-default uk-border-pill uk-width-1-1@s uk-width-1-3@m" onClick={toggleGuestForm}>
           + Agregar Invitados
         </button>
 
@@ -160,6 +163,8 @@ const Guests = (props) => {
           ) : null
         }
 
+        <Searchbar searchResults={searchResults} setSearchResults={setSearchResults} guests={guests} />
+
         <table className="uk-table uk-table-striped uk-table-hover">
           <thead>
             <tr>
@@ -173,7 +178,7 @@ const Guests = (props) => {
           </thead>
           <tbody>
             { guests ? 
-                guests.map( (guest, index) => 
+                searchResults.map( (guest, index) => 
                   <tr key={index}>
                     
                     <td className="uk-text-center">{guest.first_name} {guest.last_name}</td>
