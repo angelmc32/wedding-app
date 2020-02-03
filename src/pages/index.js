@@ -38,10 +38,10 @@ const IndexPage = (props) => {
     let codeExists = false, arrayIndex = 0, data = {};
 
     for (const [index, guest] of guests.entries()) {
-      if ( formValues.code === guest.node.code ) {
+      if ( formValues.code === guest.code ) {
         codeExists = true;
         arrayIndex = index;
-        setIsConfirmed(guest.node.confirmed);
+        setIsConfirmed(guest.confirmed);
       }
     }
 
@@ -102,8 +102,28 @@ const IndexPage = (props) => {
   }
 
   useEffect( () => {
+
     setGuests(props.data.allGuest.edges);
-  }, [guestInfo, guestTemp]);
+
+    if ( firebase ) {
+
+      let guestQuery = [];
+
+      firebase.db.collection('guests').get()
+      .then( querySnapshot => {
+
+        querySnapshot.forEach( doc => {
+          guestQuery.push(doc.data())
+        })
+
+        setGuests(guestQuery);
+        console.log(guestQuery);
+
+      });
+
+    }
+
+  }, [guestInfo, guestTemp, firebase]);
 
   return (
     <div>
