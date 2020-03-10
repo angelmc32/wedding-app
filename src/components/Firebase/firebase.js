@@ -29,6 +29,17 @@ class Firebase {
     });
   }
 
+  async sendTickets(data) {
+    const sendTicketsEmailCallable = this.functions.httpsCallable('sendTicketsViaEmail');
+    const { first_name, last_name, id, email } = data;
+    return sendTicketsEmailCallable({
+      first_name,
+      last_name,
+      id,
+      email
+    });
+  }
+
   async login({email, password}) {
     return this.auth.signInWithEmailAndPassword(email, password);
   }

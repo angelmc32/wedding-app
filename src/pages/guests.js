@@ -32,6 +32,8 @@ const Guests = (props) => {
           guestQuery.push(doc.data())
         })
 
+        console.log(guestQuery)
+
         setGuests(guestQuery);
         setSearchResults(guestQuery);
 
@@ -44,9 +46,7 @@ const Guests = (props) => {
     for( let i = 0 ; i < guests.length ; i++ ) {
       if (guests[i].confirmed) {
         friendConfirmed += 1;
-        console.log(friendConfirmed)
         plusConfirmed += parseInt(guests[i].confirmed_guests);
-        console.log(plusConfirmed)
       }
     }
 }
@@ -137,41 +137,47 @@ const Guests = (props) => {
 
   }
 
+  const sendTickets = (guest) => {
+
+    console.log(guest)
+    
+    firebase.sendTickets({
+      first_name: guest.first_name,
+      last_name: guest.last_name,
+      id: guest.id,
+      email: guest.email
+    })
+    .then( res => console.log(res) )
+    .catch( error => console.log(error) )
+
+  }
+
   return (
     <div className="uk-section">
 
-      <div className="uk-container uk-padding">
+      <div className="uk-container uk-padding-remove">
 
-        <h2>Invitados</h2>
+        <h2 className="uk-margin-large-top">Invitados</h2>
 
-        <div className="uk-width-4-5@s">
-          <h4>Confirmados: {friendConfirmed}</h4>
-          <h4>Adicionales: {plusConfirmed}</h4>
-          <h4>Invitados totales: {friendConfirmed+plusConfirmed}</h4>
-        </div>
-
-        <button className="uk-button uk-button-default uk-border-pill uk-width-1-1@s uk-width-1-3@m" onClick={toggleGuestForm}>
+        <button className="uk-button uk-button-default uk-border-pill uk-width-4-5 uk-width-1-3@m" onClick={toggleGuestForm}>
           + Agregar Invitados
         </button>
 
         { showGuestForm ? 
           (
-            <form className="uk-margin uk-flex uk-flex-wrap uk-flex-middle uk-child-width-1-5@m" onSubmit={handleSubmit}>
-              <div>
+            <form className="uk-margin uk-flex uk-flex-wrap uk-flex-center uk-width-1-1@s uk-child-width-4-5 uk-child-width-1-5@m uk-padding" onSubmit={handleSubmit}>
+
                   <input className="uk-input" name="first_name" type="text" placeholder="Nombre" onChange={handleInputChange} required />
-              </div>
-              <div>
+                
+              
                   <input className="uk-input" name="last_name" type="text" placeholder="Apellido" onChange={handleInputChange} required />
-              </div>
-              <div>
+              
                   <input className="uk-input" name="email" type="email" placeholder="E-mail" onChange={handleInputChange} />
-              </div>
-              <div>
+              
                   <input className="uk-input" name="plus_guests" type="number" placeholder="Adicionales" onChange={handleInputChange} />
-              </div>
-              <div>
+              
                   <input className="uk-input" name="table" type="number" placeholder="Mesa" onChange={handleInputChange} />
-              </div>
+              
               <div className="uk-width-1-1 uk-margin">
                 <button className="uk-button uk-button-primary uk-border-pill">
                   Agregar invitado
@@ -182,10 +188,12 @@ const Guests = (props) => {
           ) : null
         }
 
-        <Searchbar searchResults={searchResults} setSearchResults={setSearchResults} guests={guests} />
+        <div className="uk-padding">
+          <Searchbar searchResults={searchResults} setSearchResults={setSearchResults} guests={guests} />
+        </div>
 
-        <table className="uk-table uk-table-striped uk-table-hover">
-          <thead>
+        <table className="uk-table uk-table-striped uk-table-hover uk-width-4-5">
+          <thead className="uk-width-1-1">
             <tr>
               <th className="uk-text-center">Nombre</th>
               <th className="uk-text-center uk-visible@s">E-mail</th>
@@ -207,8 +215,8 @@ const Guests = (props) => {
                     <td className="uk-text-center uk-visible@s">{guest.code}</td>
                     <td className="uk-text-center uk-visible@s">{guest.table}</td>
                     <td className="uk-text-center">{guest.confirmed ? <span className="uk-text-success">Sí</span> : <span className="uk-text-danger">No</span>}</td>
-                    <td className="uk-text-center">{guest.confirmed ? <span className="uk-text-success">{guest.confirmed_guests}</span> : <span className="uk-text-danger">0</span>}</td>
-                    <td><button className="uk-button-primary uk-border-pill uk-button-small uk-visible@s" onClick={(event) => sendInvitation(guest)}>Enviar Invitación</button></td>
+                    <td className="uk-text-center uk-visible@s">{guest.confirmed ? <span className="uk-text-success">{guest.confirmed_guests}</span> : <span className="uk-text-danger">0</span>}</td>
+                    <td><button className="uk-button-primary uk-border-pill uk-button-small uk-visible uk-margin-right" onClick={(event) => sendTickets(guest)}>Enviar boletos</button></td>
                   </tr>
                 )
               : <tr>
@@ -242,6 +250,7 @@ export const query = graphql`
         email
         confirmed
         code
+        id
       }
     }
   }
