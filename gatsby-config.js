@@ -55,7 +55,8 @@ module.exports = {
               code: doc.code,
               plus_guests: doc.plus_guests,
               table: doc.table,
-              confirmed: doc.confirmed
+              confirmed: doc.confirmed,
+              confirmed_guests: doc.confirmed_guests
             })
           }
         ]
