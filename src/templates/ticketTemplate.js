@@ -25,7 +25,7 @@ const tickettTemplate = (props) => {
 
         { confirmed ? (
             <div className="uk-height-medium uk-flex uk-flex-middle uk-flex-center">
-              <QRCode value={`http://localhost:8000/guest/${id}`} size={196} />
+              <QRCode value={`http://paulayangel.com/guest/${id}`} size={196} />
             </div>
           ) : (
             <div className="uk-height-medium uk-flex uk-flex-middle uk-flex-center">
