@@ -18,6 +18,7 @@ const Guests = (props) => {
   useEffect( () => {
 
     if (!user) navigate('/login'); 
+
     props.data.allGuest.edges.forEach( node => guestArray.push(node.node))
     setGuests(guestArray);
 
@@ -29,27 +30,34 @@ const Guests = (props) => {
       .then( querySnapshot => {
 
         querySnapshot.forEach( doc => {
-          guestQuery.push(doc.data())
-        })
 
-        console.log(guestQuery)
+          let data = doc.data();
+          data.id = doc.id;
+
+          guestQuery.push(data)
+
+        })
 
         setGuests(guestQuery);
         setSearchResults(guestQuery);
+        console.log(guests)
+        console.log(guestQuery)
 
-      });
+      })
 
     }
 
     if ( friendConfirmed == 0 ) {
 
-    for( let i = 0 ; i < guests.length ; i++ ) {
-      if (guests[i].confirmed) {
-        friendConfirmed += 1;
-        plusConfirmed += parseInt(guests[i].confirmed_guests);
+      for( let i = 0 ; i < guests.length ; i++ ) {
+        if (guests[i].confirmed) {
+          friendConfirmed += 1;
+          plusConfirmed += parseInt(guests[i].confirmed_guests);
+        }
       }
+
     }
-}
+    
   }, [firebase]);
 
   const toggleGuestForm = () => {setShowGuestForm(!showGuestForm)}
@@ -87,7 +95,12 @@ const Guests = (props) => {
       .then( querySnapshot => {
 
         querySnapshot.forEach( doc => {
-          guestQuery.push(doc.data())
+
+          let data = doc.data();
+          data.id = doc.id;
+
+          guestQuery.push(data)
+
         })
 
         setGuests(guestQuery);

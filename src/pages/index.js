@@ -14,6 +14,7 @@ const IndexPage = (props) => {
   const [ isConfirmed, setIsConfirmed ] = useState(false);
   const [ guestTemp, setGuestTemp ] = useState({});
   const [ formValues, setFormValues ] = useState({code: '', email: '', confirmed_guests: '0'});
+  let guestArray = [];
 
   async function special() {
 
@@ -105,6 +106,8 @@ const IndexPage = (props) => {
 
     setGuests(props.data.allGuest.edges);
 
+    console.log(props.data.allGuest.edges);
+
     if ( firebase ) {
 
       let guestQuery = [];
@@ -113,11 +116,18 @@ const IndexPage = (props) => {
       .then( querySnapshot => {
 
         querySnapshot.forEach( doc => {
-          guestQuery.push(doc.data())
+          let data = doc.data();
+          data.id = doc.id;
+
+          guestQuery.push(data)
         })
 
         setGuests(guestQuery);
         console.log(guestQuery);
+
+        guestArray = guestQuery;
+
+        console.log(guests)
 
       });
 
