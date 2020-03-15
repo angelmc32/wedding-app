@@ -43,7 +43,8 @@ const tickettTemplate = (props) => {
               </div>
             : 
               <div>
-                <h4>Cantidad de boletos: {1+parseInt(confirmed_guests)}</h4> 
+                <h4>Cantidad de boletos: {1+parseInt(confirmed_guests)}</h4>
+                <h4>Mesa: {table}</h4>
                 <h4 className="uk-margin-top">¡Pásala genial, {first_name}!</h4>
                 <h4 className="uk-margin-top">Gracias por acompañarnos</h4>
               </div>
