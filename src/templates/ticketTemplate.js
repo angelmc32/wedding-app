@@ -7,8 +7,6 @@ const tickettTemplate = (props) => {
 
   const { id, first_name, last_name, confirmed, confirmed_guests, table } = props.pageContext;
 
-  console.log(typeof parseInt(confirmed_guests))
-
   return (
     <div className="uk-section">
 
@@ -38,7 +36,8 @@ const tickettTemplate = (props) => {
         { confirmed ? (
             parseInt(confirmed_guests) > 0 ? 
               <div>
-                <h4>Cantidad de boletos: {1+parseInt(confirmed_guests)}</h4> 
+                <h4>Cantidad de boletos: {1+parseInt(confirmed_guests)}</h4>
+                <h4>Mesa: {table}</h4> 
                 <h4 className="uk-margin-top">¡Pásenla genial, {first_name}!</h4>
                 <h4 className="uk-margin-top">Gracias por acompañarnos</h4>
               </div>
