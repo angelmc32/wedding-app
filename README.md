@@ -30,7 +30,7 @@ Run start scripts with your preferred command
 
 ## Built With
 
-- [Mongo](https://www.mongodb.com/) - Database used: MongoDB Cloud
+- [Firebase](https://firebase.google.com/) - Database used: Firestore
 - [Express](https://expressjs.com/) - Web framework used
 - [React](https://reactjs.org/) - Javascript library for frontend development
 - [GatsbyJS](https://www.gatsbyjs.com/) - React Static Site Generator
